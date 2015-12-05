@@ -1,11 +1,13 @@
 package com.apps.inen.spellingapp;
 
 import android.content.res.Resources;
+import android.graphics.Point;
 import android.graphics.drawable.Drawable;
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
+import android.view.Display;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -40,6 +42,8 @@ public class GameFragment extends Fragment {
     String[] alphabet;
 
     int iteration;
+    int screenWidth;
+    int screenHeight;
 
     @Nullable
     @Override
@@ -64,6 +68,12 @@ public class GameFragment extends Fragment {
         alphabet = resources.getStringArray(R.array.alphabet_en);
 
         wordsCount = resources.getTextArray(R.array.words_en).length;
+
+        Display display = getActivity().getWindowManager().getDefaultDisplay();
+        Point size = new Point();
+        display.getSize(size);
+        screenWidth = size.x;
+        screenHeight = size.y;
 
         initScreen();
 
@@ -91,9 +101,8 @@ public class GameFragment extends Fragment {
         for (int i = 0; i < BUTTONS_COUNT; ++i) {
             Button button = new Button(getActivity());
 
-            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-            lp.weight = 1;
+            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(screenHeight/10, screenHeight/10);
+            //lp.weight = 1;
             lp.setMargins(10, 10, 10, 10);
 
             button.setLayoutParams(lp);
@@ -114,9 +123,10 @@ public class GameFragment extends Fragment {
                         tv.setGravity(Gravity.CENTER);
                         tv.setText(currentLetter);
                         if (tv.getHeight() > tv.getWidth())
-                            tv.setTextSize(tv.getWidth() / 2);
+                            tv.setTextSize(tv.getWidth() / 3);
                         else
-                            tv.setTextSize(tv.getHeight() / 2);
+                            tv.setTextSize(tv.getHeight() / 3);
+
                         tv.setBackground(cellDefaultBackground);
 
                         if (iteration < word.length()-1) {
@@ -142,9 +152,8 @@ public class GameFragment extends Fragment {
         for (int i = 0; i < count; ++i) {
             TextView textView = new TextView(getActivity());
 
-            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
-            lp.weight = 1;
+            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(screenHeight/10, screenHeight/10);
+            //lp.weight = 1;
             lp.setMargins(10, 10, 10, 10);
             textView.setLayoutParams(lp);
 

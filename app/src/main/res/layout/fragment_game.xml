@@ -9,27 +9,40 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:text="WORD"
-        android:textSize="50sp"
-        android:gravity="center"/>
+        android:gravity="center"
+        android:textSize="25sp" />
 
-    <LinearLayout
-        android:id="@+id/cellPanel"
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal"
         android:layout_weight="1">
 
-    </LinearLayout>
+        <LinearLayout
+            android:id="@+id/cellPanel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="horizontal">
 
-    <LinearLayout
-        android:id="@+id/buttonPanel"
+        </LinearLayout>
+
+    </FrameLayout>
+
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:layout_weight="1"
-        android:gravity="center">
+        android:layout_weight="1">
 
-    </LinearLayout>
+        <LinearLayout
+            android:id="@+id/buttonPanel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+        </LinearLayout>
+
+    </FrameLayout>
 
 </LinearLayout>

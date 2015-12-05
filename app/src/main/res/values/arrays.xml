@@ -4,11 +4,13 @@
     <string-array name="words_ru">
         <item>СЛОВО</item>
         <item>СУМКА</item>
+        <item>НЕЗАВИСИМОСТЬ</item>
     </string-array>
 
     <string-array name="words_en">
         <item>WORD</item>
         <item>BAG</item>
+        <item>INDEPENDENCE</item>
     </string-array>
 
     <string-array name="alphabet_en">
